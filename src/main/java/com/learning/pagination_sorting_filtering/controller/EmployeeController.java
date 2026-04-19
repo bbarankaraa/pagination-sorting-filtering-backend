@@ -10,7 +10,11 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/employee")
-@CrossOrigin(origins = "https://pagination-sorting-filtering-frontend-3xze37htg.vercel.app")
+@CrossOrigin(origins = {
+    "https://pagination-sorting-filtering-fronte.vercel.app",
+    "https://pagination-sorting-filtering-f-git-94742e-bbarankaraas-projects.vercel.app",
+    "https://pagination-sorting-filtering-frontend-n0ma7xebg.vercel.app"
+})
 @RequiredArgsConstructor
 public class EmployeeController {
 
