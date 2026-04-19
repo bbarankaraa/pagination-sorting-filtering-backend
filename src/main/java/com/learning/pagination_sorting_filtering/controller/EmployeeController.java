@@ -10,7 +10,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/employee")
-@CrossOrigin(origins = "http://localhost:3000")
+@CrossOrigin(origins = "https://pagination-sorting-filtering-frontend-3xze37htg.vercel.app")
 @RequiredArgsConstructor
 public class EmployeeController {
 
