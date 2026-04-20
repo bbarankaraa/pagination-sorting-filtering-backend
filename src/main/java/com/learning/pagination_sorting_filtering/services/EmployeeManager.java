@@ -1,6 +1,7 @@
 package com.learning.pagination_sorting_filtering.services;
 
 import com.learning.pagination_sorting_filtering.dto.DtoEmployee;
+import com.learning.pagination_sorting_filtering.dto.DtoEmployeeIU;
 import com.learning.pagination_sorting_filtering.model.Employee;
 import com.learning.pagination_sorting_filtering.repository.EmployeeRepository;
 import com.learning.pagination_sorting_filtering.services.abstracts.EmployeeService;
@@ -45,5 +46,18 @@ public class EmployeeManager implements EmployeeService {
         }
 
         return dtoEmployees;
+    }
+
+    @Override
+    public DtoEmployee saveEmployee(DtoEmployeeIU dtoEmployeeIU) {
+
+        Employee employee = new Employee();
+        BeanUtils.copyProperties(dtoEmployeeIU,employee);
+
+        Employee savedEmployee = employeeRepository.save(employee);
+        DtoEmployee dtoEmployee = new DtoEmployee();
+        BeanUtils.copyProperties(savedEmployee,dtoEmployee);
+
+        return dtoEmployee;
     }
 }

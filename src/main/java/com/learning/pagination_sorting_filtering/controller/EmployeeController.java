@@ -1,7 +1,9 @@
 package com.learning.pagination_sorting_filtering.controller;
 
 import com.learning.pagination_sorting_filtering.dto.DtoEmployee;
+import com.learning.pagination_sorting_filtering.dto.DtoEmployeeIU;
 import com.learning.pagination_sorting_filtering.services.abstracts.EmployeeService;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -27,6 +29,11 @@ public class EmployeeController {
                                                                @RequestParam(required = false, defaultValue = "ASC") String sortDir,
                                                                @RequestParam(required = false) String search
     ) {
-        return ResponseEntity.ok().body(employeeService.fetchAllEmployees(pageNo, pageSize,sortBy,sortDir,search));
+        return ResponseEntity.ok(employeeService.fetchAllEmployees(pageNo, pageSize,sortBy,sortDir,search));
+    }
+
+    @PostMapping(path = "/save")
+    public ResponseEntity<DtoEmployee> saveEmployee(@Valid @RequestBody DtoEmployeeIU dtoEmployeeIU) {
+        return ResponseEntity.ok(employeeService.saveEmployee(dtoEmployeeIU));
     }
 }
