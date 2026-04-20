@@ -8,9 +8,6 @@ import java.util.Date;
 @Data
 public class DtoEmployeeIU {
     @NotBlank
-    private Long id;
-
-    @NotBlank
     private String name;
 
     @NotBlank
