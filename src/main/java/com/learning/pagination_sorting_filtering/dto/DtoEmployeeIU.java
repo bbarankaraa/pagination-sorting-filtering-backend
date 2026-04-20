@@ -1,6 +1,7 @@
 package com.learning.pagination_sorting_filtering.dto;
 
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import lombok.Data;
 
 import java.util.Date;
@@ -13,6 +14,6 @@ public class DtoEmployeeIU {
     @NotBlank
     private String department;
 
-    @NotBlank
+    @NotNull
     private Date joiningDate;
 }
